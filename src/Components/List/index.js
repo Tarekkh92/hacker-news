@@ -18,15 +18,14 @@ const List = () =>{
                 console.log("item", item)
                 axios.get(`https://hacker-news.firebaseio.com/v0/item/${item}.json?print=pretty`)
                     .then((res)=>{
-                        data2.push(res.data)
-                        setData(data2)
+                        setData(prevState => [...prevState, res.data] );
                     })
             })
         })
     },[])
 
     const addPage = ()=>{
-        setpages(pages+4)
+        setpages(pages+3)
     }
 
     // console.log("datafsdfdsfdsdfsdf",data)
